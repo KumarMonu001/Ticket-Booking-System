@@ -23,23 +23,15 @@ while True:
             ticket_list[ticket_list.index(ticket_number)] = 'Bb'
         else:
             print('Sorry! The ticket has been already booked!')
-    # for showing available seat
     elif choice == 2:
-        print('===================== Available seats list ===================')
         # showing all the tickets table
-        for tic in ticket_list:
-            if tic == 'Bb':
-                if ((ticket_list.index(tic))+1) % 10 == 0:
-                    print('Bb'.center(5))
-                else:
-                    print('Bb'.center(5), end=' ')
-            elif tic < 10:
-                print(f'0{tic}'.center(5), end=' ')
-            elif tic % 10 == 0:
-                print(f'{tic}'.center(5))
-            else:
-                print(f'{tic}'.center(5), end = ' ')
-        print('\n==========================================================')
+        print('===================== Available Seats =====================')
+        for i, tic in enumerate(ticket_list, start=1):  # Use index i (1 to 50)
+               print(f"{tic}".center(5), end=' ')
+            
+               if i % 10 == 0:  # New line after every 10 seats
+                print()
+        print('==========================================================')
     # for cancel ticket
     elif choice == 3:
         cancel_number = int(input('Enter ticket number to cancel : '))
